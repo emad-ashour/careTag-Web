@@ -6,3 +6,4 @@
 - **Language Selector**: A prominent language switcher must be available in the navigation bar to toggle between Arabic ("العربية") and English ("English").
 - **Font Optimization**: Use Arabic-optimized fonts (like `Cairo` or `Tajawal` from Google Fonts) when in Arabic mode to ensure professional typography.
 - **Translation Completeness**: All sections (Hero, How It Works, Value Proposition, Shop Finder, Pricing, Contact Us, and Footer) must be fully localized.
+- **UI/UX**: For all UI component generation and styling, you MUST strictly adhere to the design system tokens and UX patterns defined in .ai/contracts/ui-contract.md

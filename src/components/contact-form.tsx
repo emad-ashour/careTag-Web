@@ -48,16 +48,15 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
 
   if (submitted) {
     return (
-      <div className="glassmorphism rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[400px] border border-emerald-500/20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 glow-bg-green -mr-16 -mt-16 opacity-20" />
-        <CheckCircle2 className="w-16 h-16 text-emerald-400 mb-4 animate-bounce" />
-        <h3 className="text-2xl font-bold text-slate-100 mb-2">{t.conSuccessTitle}</h3>
-        <p className="text-slate-400 max-w-sm mb-6 text-sm">
+      <div className="glassmorphism rounded-xl p-8 text-center flex flex-col items-center justify-center min-h-[400px] border border-border-slate relative overflow-hidden">
+        <CheckCircle2 className="w-16 h-16 text-forest-green mb-4" />
+        <h3 className="text-2xl font-bold text-slate-dark mb-2">{t.conSuccessTitle}</h3>
+        <p className="text-slate-muted font-medium max-w-sm mb-6 text-sm">
           {t.conSuccessDesc}
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="px-6 py-2.5 bg-slate-900 border border-slate-800 hover:border-emerald-500/30 text-slate-300 hover:text-emerald-400 rounded-xl text-sm font-semibold transition-all"
+          className="px-6 py-2.5 bg-white border border-border-slate hover:bg-surface-gray text-slate-dark rounded-full text-sm font-bold transition-all"
         >
           {t.conSuccessBtn}
         </button>
@@ -66,17 +65,16 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
   }
 
   return (
-    <div className="glassmorphism rounded-2xl p-6 md:p-8 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 glow-bg-green -mr-16 -mt-16 opacity-10" />
-      <h3 className="text-xl font-bold text-slate-100 mb-2">{t.conGetInTouch}</h3>
-      <p className="text-slate-400 text-sm mb-6">
+    <div className="glassmorphism rounded-xl p-6 md:p-8 relative overflow-hidden">
+      <h3 className="text-xl font-bold text-slate-dark mb-2">{t.conGetInTouch}</h3>
+      <p className="text-slate-muted font-medium text-sm mb-6">
         {t.conGetInTouchSub}
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="contact-name" className="block text-xs font-semibold uppercase text-slate-400 mb-1">{t.conLabelName}</label>
+            <label htmlFor="contact-name" className="block text-xs font-bold uppercase text-slate-muted mb-1">{t.conLabelName}</label>
             <input
               type="text"
               id="contact-name"
@@ -85,11 +83,11 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
               value={formState.name}
               onChange={handleChange}
               placeholder={t.conPlaceholderName}
-              className="w-full px-4 py-2.5 bg-slate-950/60 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+              className="w-full px-4 py-2.5 bg-white border border-border-slate rounded-xl text-slate-dark placeholder-slate-muted focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm"
             />
           </div>
           <div>
-            <label htmlFor="contact-email" className="block text-xs font-semibold uppercase text-slate-400 mb-1">{t.conLabelEmail}</label>
+            <label htmlFor="contact-email" className="block text-xs font-bold uppercase text-slate-muted mb-1">{t.conLabelEmail}</label>
             <input
               type="email"
               id="contact-email"
@@ -98,20 +96,20 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
               value={formState.email}
               onChange={handleChange}
               placeholder={t.conPlaceholderEmail}
-              className="w-full px-4 py-2.5 bg-slate-950/60 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+              className="w-full px-4 py-2.5 bg-white border border-border-slate rounded-xl text-slate-dark placeholder-slate-muted focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="contact-inquiry" className="block text-xs font-semibold uppercase text-slate-400 mb-1">{t.conLabelInquiry}</label>
+            <label htmlFor="contact-inquiry" className="block text-xs font-bold uppercase text-slate-muted mb-1">{t.conLabelInquiry}</label>
             <select
               id="contact-inquiry"
               name="inquiryType"
               value={formState.inquiryType}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-slate-950/60 border border-slate-800 rounded-xl text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm cursor-pointer"
+              className="w-full px-4 py-2.5 bg-white border border-border-slate rounded-xl text-slate-dark focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm cursor-pointer"
             >
               <option value="onboarding">{t.conOptOnboarding}</option>
               <option value="tags">{t.conOptTags}</option>
@@ -119,7 +117,7 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
             </select>
           </div>
           <div>
-            <label htmlFor="contact-agency" className="block text-xs font-semibold uppercase text-slate-400 mb-1">{t.conLabelAgency}</label>
+            <label htmlFor="contact-agency" className="block text-xs font-bold uppercase text-slate-muted mb-1">{t.conLabelAgency}</label>
             <input
               type="text"
               id="contact-agency"
@@ -127,13 +125,13 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
               value={formState.agencyName}
               onChange={handleChange}
               placeholder={t.conPlaceholderAgency}
-              className="w-full px-4 py-2.5 bg-slate-950/60 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+              className="w-full px-4 py-2.5 bg-white border border-border-slate rounded-xl text-slate-dark placeholder-slate-muted focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="contact-message" className="block text-xs font-semibold uppercase text-slate-400 mb-1">{t.conLabelMessage}</label>
+          <label htmlFor="contact-message" className="block text-xs font-bold uppercase text-slate-muted mb-1">{t.conLabelMessage}</label>
           <textarea
             id="contact-message"
             name="message"
@@ -142,14 +140,14 @@ export default function ContactForm({ locale = 'ar' }: ContactFormProps) {
             value={formState.message}
             onChange={handleChange}
             placeholder={t.conPlaceholderMessage}
-            className="w-full px-4 py-2.5 bg-slate-950/60 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm resize-none"
+            className="w-full px-4 py-2.5 bg-white border border-border-slate rounded-xl text-slate-dark placeholder-slate-muted focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm resize-none"
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full md:w-auto px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] disabled:opacity-75 disabled:cursor-not-allowed transition-all text-sm"
+          className="w-full md:w-auto px-6 py-3 bg-forest-green hover:bg-[#0A6233] text-white rounded-full font-bold flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed transition-all text-sm"
         >
           {isSubmitting ? (
             <>

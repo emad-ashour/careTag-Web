@@ -118,18 +118,17 @@ export default function LocatorClient({ initialAgencies, locale = 'ar' }: Locato
     <div className="w-full">
       {/* Search and Filters Header */}
       <div className="glassmorphism rounded-2xl p-6 mb-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 glow-bg-green -mr-16 -mt-16 opacity-30" />
         
         <div className="flex flex-col lg:flex-row gap-4 items-center justify-between relative z-10">
           {/* Search bar */}
           <div className="w-full lg:flex-1 relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-forest-green w-5 h-5" />
             <input
               type="text"
               placeholder={t.locSearchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-slate-900/60 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+              className="w-full pl-12 pr-4 py-3 bg-white border border-border-slate rounded-xl text-slate-dark placeholder-slate-muted focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm"
             />
           </div>
 
@@ -138,14 +137,14 @@ export default function LocatorClient({ initialAgencies, locale = 'ar' }: Locato
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900/60 border border-slate-800 rounded-xl text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm appearance-none cursor-pointer"
+              className="w-full px-4 py-3 bg-white border border-border-slate rounded-xl text-slate-dark focus:outline-none focus:border-forest-green focus:ring-1 focus:ring-forest-green transition-all text-sm appearance-none cursor-pointer"
             >
               <option value="ALL">{t.locAllLocations}</option>
               {cities.map((city) => (
                 <option key={city} value={city}>{city}</option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-forest-green">
               <SlidersHorizontal className="w-4 h-4" />
             </div>
           </div>
@@ -156,9 +155,9 @@ export default function LocatorClient({ initialAgencies, locale = 'ar' }: Locato
               type="checkbox"
               checked={onlyWithPromotions}
               onChange={(e) => setOnlyWithPromotions(e.target.checked)}
-              className="w-4 h-4 rounded border-slate-800 text-emerald-500 focus:ring-emerald-500 focus:ring-offset-slate-950 bg-slate-900"
+              className="w-4 h-4 rounded border-border-slate text-forest-green focus:ring-forest-green focus:ring-offset-white bg-white"
             />
-            <span className="text-sm text-slate-300">{t.locPromotionsOnly}</span>
+            <span className="text-sm text-slate-muted font-medium">{t.locPromotionsOnly}</span>
           </label>
         </div>
       </div>
@@ -169,50 +168,50 @@ export default function LocatorClient({ initialAgencies, locale = 'ar' }: Locato
           {filteredAgencies.map((agency) => (
             <div
               key={agency.id}
-              className="glassmorphism-card rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group"
+              className="glassmorphism-card rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group"
             >
               <div>
                 {/* Header info */}
                 <div className="flex justify-between items-start gap-4 mb-3">
-                  <h4 className="text-lg font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
+                  <h4 className="text-lg font-bold text-slate-dark group-hover:text-forest-green transition-colors">
                     {agency.name}
                   </h4>
-                  <div className="flex items-center gap-1 bg-amber-500/10 text-amber-400 px-2 py-1 rounded-lg text-xs font-semibold shrink-0">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
+                  <div className="flex items-center gap-1 bg-[#FEF3C7] text-[#92400E] px-2.5 py-1 rounded-lg text-xs font-bold shrink-0">
+                    <Star className="w-3.5 h-3.5 fill-[#92400E] text-[#92400E]" />
                     <span>{agency.rating}</span>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
-                  <MapPin className="w-4 h-4 text-emerald-500 shrink-0" />
+                <div className="flex items-center gap-2 text-slate-muted font-medium text-sm mb-2">
+                  <MapPin className="w-4 h-4 text-forest-green shrink-0" />
                   <span>{agency.location || 'Unknown Location'}</span>
                 </div>
 
                 {/* Operating hours */}
-                <div className="flex items-center gap-2 text-slate-400 text-sm mb-4">
-                  <Clock className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="flex items-center gap-2 text-slate-muted font-medium text-sm mb-4">
+                  <Clock className="w-4 h-4 text-slate-muted shrink-0" />
                   <span>{agency.operatingHours}</span>
                 </div>
 
                 {/* Active promotion */}
                 {agency.promotion && (
-                  <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 mb-6 flex items-start gap-2.5">
-                    <Tag className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div className="bg-mint-light border border-forest-green/20 rounded-xl p-3 mb-6 flex items-start gap-2.5">
+                    <Tag className="w-4 h-4 text-forest-green shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-semibold text-emerald-400 uppercase tracking-wide">{t.locActiveCampaign}</p>
-                      <p className="text-xs text-emerald-200 mt-0.5">{agency.promotion}</p>
+                      <p className="text-xs font-bold text-forest-green uppercase tracking-wide">{t.locActiveCampaign}</p>
+                      <p className="text-xs text-slate-dark font-medium mt-0.5">{agency.promotion}</p>
                     </div>
                   </div>
                 )}
               </div>
 
               {/* Bottom Action */}
-              <div className="pt-2 border-t border-slate-900 flex items-center justify-between mt-auto">
-                <span className="text-xs text-slate-500 font-mono">{agency.phone}</span>
+              <div className="pt-2 border-t border-border-slate flex items-center justify-between mt-auto">
+                <span className="text-xs text-slate-muted font-mono font-medium">{agency.phone}</span>
                 <a
                   href="#contact"
-                  className="px-3.5 py-1.5 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 rounded-lg text-xs font-bold transition-all"
+                  className="px-4 py-2 bg-mint-light hover:bg-forest-green text-forest-green hover:text-white border border-forest-green/20 rounded-full text-xs font-bold transition-all"
                 >
                   {t.locBookService}
                 </a>
@@ -221,10 +220,10 @@ export default function LocatorClient({ initialAgencies, locale = 'ar' }: Locato
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-slate-900/20 border border-slate-900 rounded-2xl">
-          <Sparkles className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-          <h4 className="text-slate-300 font-semibold mb-1">{t.locNoAgencies}</h4>
-          <p className="text-slate-500 text-sm max-w-md mx-auto">
+        <div className="text-center py-16 bg-surface-gray border border-border-slate rounded-2xl">
+          <Sparkles className="w-12 h-12 text-forest-green mx-auto mb-3" />
+          <h4 className="text-slate-dark font-bold mb-1">{t.locNoAgencies}</h4>
+          <p className="text-slate-muted text-sm font-medium max-w-md mx-auto">
             {t.locNoAgenciesDesc}
           </p>
         </div>
