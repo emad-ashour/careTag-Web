@@ -12,14 +12,20 @@ export default async function Home() {
   try {
     const { data, error } = await supabase
       .from('agencies')
-      .select('id, name, location, subscription_status, created_at')
-      .or('subscription_status.eq.active,subscription_status.eq.ACTIVE');
+      .select('id, garage_name, address, created_at')
+      .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Supabase query error:', error);
       errorMsg = error.message;
     } else if (data) {
-      agencies = data as Agency[];
+      agencies = data.map((d: any) => ({
+        id: d.id,
+        name: d.garage_name,
+        location: d.address,
+        subscription_status: 'active',
+        created_at: d.created_at,
+      }));
     }
   } catch (err) {
     const error = err as Error;
