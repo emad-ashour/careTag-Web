@@ -1,0 +1,13 @@
+{
+  "name": "caretag-web-agent",
+  "description": "Frontend specialist for the CareTag Next.js marketing homepage, SEO, and public agency locators.",
+  "url": "https://www.caretag.com/.well-known/agent.json",
+  "provider": { "name": "CareTag Enterprise" },
+  "capabilities": [
+    { 
+      "type": "marketing_ui_design", 
+      "description": "Builds high-conversion Hero sections, pricing matrices, and contact forms." 
+    }
+  ],
+  "security": { "type": "None" }
+}
